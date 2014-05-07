@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="instance" default="all" basedir=".">
+  <property name="mysql.params" value="-u root -proot" />
+  <target name="all" depends="createdb"></target>
+
+  <target name="createdb">
+     <exec executable="mysql" input="createdb.sql">
+        <arg line="${mysql.params}" />
+     </exec>
+  </target>
+
+</project>

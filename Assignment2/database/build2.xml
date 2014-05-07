@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="role" default="all" basedir=".">
+  <property name="mysql.params" value="-u root -proot -D role" />
+  <target name="all" depends="createtb, inserttb"></target>
+
+  <target name="createtb">
+     <exec executable="mysql" input="createtb.sql">
+        <arg line="${mysql.params}" />
+     </exec>
+  </target>
+
+  <target name="inserttb">
+     <exec executable="mysql" input="inserttb.sql">
+        <arg line="${mysql.params}" />
+     </exec>
+  </target>
+</project>

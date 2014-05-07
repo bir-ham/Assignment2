@@ -1,9 +1,10 @@
 package assignment2.business;
 
+
 public class Main {
 
 	public static void main(String[] args) {
-		InstancesRole instanceRole = new InstancesRole();
+		Instances instanceRole = new Instances();
 		Thread one = new Thread(instanceRole);
 		Thread two = new Thread(instanceRole);
 		Thread three = new Thread(instanceRole);
@@ -16,6 +17,7 @@ public class Main {
 		two.start();
 		three.start();
 		four.start();
+			
 	}
 
 }
