@@ -17,7 +17,7 @@ public class InstanceDAO extends DataAccessObject {
 
 		try {
 			connection = getConnection();
-			String sql = "select * from role where status=? limit 1";
+			String sql = "select * from instance where status=? limit 1";
 			statement = connection.prepareStatement(sql);
 			statement.setLong(1, id.longValue());
 			rs = statement.executeQuery();
@@ -42,7 +42,7 @@ public class InstanceDAO extends DataAccessObject {
 
 		try {
 			connection = getConnection();
-			String sql = "update role set " + "status=? where task=?";
+			String sql = "update instance set " + "status=? where task=?";
 			statement = connection.prepareStatement(sql);
 			statement.setLong(1, role.getStatus());
 			statement.setString(2, role.getTask());
