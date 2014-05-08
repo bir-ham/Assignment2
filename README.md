@@ -7,8 +7,8 @@ Tools: Eclipse, MySQL, EGit/github
 
 This is a multithreaded java project implemented using java SDK and mysql-connector.jar libraries. An MVC paradigm has been followed when structuring and designing project components. The service retrieves available task from a database and assigns it to the instance object running at the current thread. Multiple threads are started in no-particular-order from the ‘main’ method block to demo the behavior of identical service instances in a scalable application server.  
 
-Database
---------
+Database configuration 
+----------------------
 An Ant Build file is created under a folder called ‘database’ called 'build.xml' for the purpose of creating database table called 'instance' and inserting values to the table. Here is an instruction for configuration.
 
 •	Install MySQL database if not already has.
