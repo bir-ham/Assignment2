@@ -2,14 +2,11 @@ package assignment2.data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DataAccessObject {
-
-	private static Object idLock = new Object();
 
 	protected static Connection getConnection() {
 		
@@ -45,37 +42,6 @@ public class DataAccessObject {
 				connection.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
-		}
-	}
-
-	protected static Long getUniqueId() {
-
-		ResultSet rs = null;
-		PreparedStatement statement = null;
-		Connection connection = null;
-
-		try {
-			connection = getConnection();
-
-			synchronized (idLock) {
-				statement = connection
-						.prepareStatement("select next_id_value from sequence");
-				rs = statement.executeQuery();
-				rs.first();
-				long id = rs.getLong(1);
-				statement.close();
-				statement = connection
-						.prepareStatement("update sequence set next_id_value = ?");
-				statement.setLong(1, id + 1);
-				statement.executeUpdate();
-				statement.close();
-
-				return new Long(id);
-			}
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		} finally {
-			close(rs, statement, connection);
 		}
 	}
 

@@ -1,2 +1,2 @@
-create database role;
-grant all privileges on role.* to role@localhost identified by 'role';
+create database instance;
+grant all privileges on instance.* to instance@localhost identified by 'instance';
