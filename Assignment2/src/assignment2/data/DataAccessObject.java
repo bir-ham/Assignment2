@@ -17,8 +17,8 @@ public class DataAccessObject {
 				e.printStackTrace();
 			}
 			  Connection connection = DriverManager.getConnection(
-	                    "jdbc:mysql://localhost/role", "role",
-	                    "role");
+	                    "jdbc:mysql://localhost/instance", "instance",
+	                    "instance");
 			return connection;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
